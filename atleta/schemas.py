@@ -1,7 +1,9 @@
 from typing import Annotated
-from pydantic import BaseModel, Field, PositiveFloat
+from pydantic import Field, PositiveFloat
 
-class Atleta(BaseModel):
+from contrib.schemas import BaseSchema
+
+class Atleta(BaseSchema):
     nome: Annotated[str, Field(description="Nome do atleta", examples='Joao', max_length=50)]
     cpf: Annotated[str, Field(description="CPF do atleta", examples='123.456.789-00', max_length=14)]
     idade: Annotated[int, Field(description="Idade do atleta", examples=30)]
